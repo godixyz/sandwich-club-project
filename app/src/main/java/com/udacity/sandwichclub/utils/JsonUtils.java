@@ -33,7 +33,7 @@ public class JsonUtils {
             JSONObject name = mainJsonObject.getJSONObject(NAME_KEY);
 
             // Extract the main name associated with the key "mainName"
-            String mainName = name.getString(MAIN_NAME_KEY);
+            String mainName = name.optString(MAIN_NAME_KEY);
 
             // Get the JSONArray associated with the key "alsoKnownAs"
             JSONArray JSONArrayAlsoKnownAs = name.getJSONArray(ALSO_KNOWN_AS_KEY);
@@ -43,10 +43,10 @@ public class JsonUtils {
             String placeOfOrigin = mainJsonObject.optString(PLACE_OF_ORIGIN_KEY);
 
             // Extract the description text associated with the key "description"
-            String description = mainJsonObject.getString(DESCRIPTION_KEY);
+            String description = mainJsonObject.optString(DESCRIPTION_KEY);
 
             // Extract the image path associated with the key "image"
-            String image = mainJsonObject.getString(IMAGE_KEY);
+            String image = mainJsonObject.optString(IMAGE_KEY);
 
             JSONArray JSONArrayIngredients = mainJsonObject.getJSONArray(INGREDIENTS_KEY);
             List<String> ingredients = JsonArrayToList(JSONArrayIngredients);
